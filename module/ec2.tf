@@ -20,3 +20,6 @@ resource "aws_instance" "web2" {
   }
 }
 
+output "IP" {
+  value = "${aws_instance.web.public_ip}"
+}
