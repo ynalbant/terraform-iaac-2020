@@ -31,6 +31,6 @@ resource "aws_subnet" "dev_private2" {
 
 resource "aws_subnet" "dev_private3" {
   vpc_id = "${aws_vpc.dev.id}"
-  cidr_block = "${var.cidr_block3_public}"
+  cidr_block = "${var.cidr_block3_private}"
   
 }
