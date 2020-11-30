@@ -1,9 +1,8 @@
 
 #provides a region for VPC
 environment                     =       "virginia"
+region                          =       "us-east-1"
 
-
-region                          = "us-east-1"
 s3_bucket                       =	"terraform-iaac-2020-state"
 s3_folder_region                =	"us-east-1"
 
