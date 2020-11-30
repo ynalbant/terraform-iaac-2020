@@ -1,6 +1,6 @@
 
 #provides a region for VPC
-region = "us-east-1"
+region = "us-east-2"
 
 #this is used for VPC CIDR_BLOCK
 cidr_block = "10.0.0.0/16"
