@@ -12,13 +12,13 @@ output "subnet2" {
 output "subnet3" {
     value = "${aws_subnet.dev3.id}"
 }
-output "private subnet1" {
+output "private_subnet1" {
     value = "${aws_subnet.dev_private1.id}"
 }
-output "private subnet2" {
+output "private_subnet2" {
     value = "${aws_subnet.dev_private2.id}"
 }
-output "private subnet3" {
+output "private_subnet3" {
     value = "${aws_subnet.dev_private3.id}"
 }
 
