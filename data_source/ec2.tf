@@ -35,6 +35,7 @@ resource "aws_key_pair" "provisioner" {
 resource "aws_instance" "web1" {
 ami = "${data.aws_ami.ubuntu.id}"
 instance_type = "t2.micro"
+key_name  = "${aws_key_pair.provisioner.key_name}"
 tags = {
 Name = "HelloWorld"
 }
@@ -76,6 +77,7 @@ output "centos_ami_id" {
 resource "aws_instance" "web" {
 ami = "${data.aws_ami.centos.id}"
 instance_type = "t2.micro"
+key_name  = "${aws_key_pair.provisioner.key_name}" 
 tags = {
 Name = "HelloWorld"
 }
