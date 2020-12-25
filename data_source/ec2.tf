@@ -34,7 +34,7 @@ resource "aws_instance" "web" {
 #gets centos ami 
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-west-2"
 }
 data "aws_ami" "centos" {
   most_recent = true
