@@ -17,8 +17,8 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  output "ami" {
-  value = data.aws_ami.ubuntu.id
+  output "AMI_ID" {
+  value = "${data.aws_ami.ubuntu.id}"
 }
 
   owners = ["099720109477"] # Canonical
@@ -50,8 +50,8 @@ data "aws_ami" "centos" {
     values = ["CentOS Linux 7 x86_64 HVM EBS *"]
   }
 }
-output "ami" {
-  value = data.aws_ami.centos.id
+  output "AMI_ID" {
+  value = "${data.aws_ami.centos.id}"
 }
 resource "aws_instance" "web" {
         ami = "${data.aws_ami.ubuntu.id}"
