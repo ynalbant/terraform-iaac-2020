@@ -23,7 +23,7 @@ data "aws_ami" "ubuntu" {
 }
 
 output "ubuntu_ami_id" {
-  value = "${data.aws.ami_ubuntu.id}"
+  value = "data.aws.ami_ubuntu.id"
 
 }
 
@@ -63,17 +63,17 @@ data "aws_ami" "centos" {
   owners = ["679593333241"] # Canonical
 }
 
-resource "aws_key_pair" "provisioner" {
+resource "aws_key_pair" "provisioner2" {
   key_name   = "provisioner-key"
   public_key = "${file("~/.ssh/id_rsa.pub")}"
 }
 
 
 output "centos_ami_id" {
-  value = "${data.aws.ami_centos.id}"
+  value = "data.aws.ami_centos.id"
 }
 
-resource "aws_instance" "web2" {
+resource "aws_instance" "web" {
 ami = "${data.aws_ami.centos.id}"
 instance_type = "t2.micro"
 tags = {
