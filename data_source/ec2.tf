@@ -17,11 +17,13 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
-}
-output "ami" {
+  output "ami" {
   value = data.aws_ami.ubuntu.id
 }
+
+  owners = ["099720109477"] # Canonical
+}
+
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
