@@ -17,9 +17,7 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  output "AMI_ID" {
-  value = "${data.aws_ami.ubuntu.id}"
-}
+  
 
   owners = ["099720109477"] # Canonical
 }
