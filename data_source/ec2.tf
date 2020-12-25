@@ -22,15 +22,22 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+output "ubuntu_ami_id" {
+  value = "data.aws.ami_ubuntu.id"
 
-resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t3.micro"
-
-  tags = {
-    Name = "HelloWorld"
-  }
 }
+
+resource "aws_instance" "web1" {
+ami = "${data.aws_ami.ubuntu.id}"
+instance_type = "t3.micro"
+tags = {
+Name = "HelloWorld"
+}
+}
+
+
+
+
 #gets centos ami 
 
 data "aws_ami" "centos" {
@@ -52,15 +59,14 @@ data "aws_ami" "centos" {
 }
 
 
-resource "aws_instance" "web2" {
-  ami           = "${data.aws_ami.centos.id}"
-  instance_type = "t3.micro"
-
-  tags = {
-    Name = "HelloWorld"
-  }
+output "centos_ami_id" {
+  value = "data.aws.ami_centos.id"
 }
 
-
-
-
+resource "aws_instance" "web2" {
+ami = "${data.aws_ami.centos.id}"
+instance_type = "t3.micro"
+tags = {
+Name = "HelloWorld"
+}
+}
