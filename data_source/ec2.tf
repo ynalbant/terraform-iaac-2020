@@ -22,7 +22,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-output "ubuntu_ami_id" {
+output  "UBUNTU_AMI_ID" {
   value = "data.aws.ami_ubuntu.id"
 
 }
