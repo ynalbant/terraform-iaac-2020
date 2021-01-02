@@ -15,7 +15,9 @@ resource  "null_resource" "yunus"{
           "mkdir /tmp/ubuntu",
           "w",
           "free -m",
-          "sleep 5"
+          "sleep 5",
+          "sudo apt-get install wget -y",
+          "wget https://wordpress.org/latest.tar.gz"
           ]
     
     }
