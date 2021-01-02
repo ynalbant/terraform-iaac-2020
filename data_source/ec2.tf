@@ -36,31 +36,20 @@ resource "aws_instance" "web" {
 ami = "${data.aws_ami.ubuntu.id}"
 instance_type = "t2.micro"
 key_name  = "${aws_key_pair.provisioner.key_name}"
-
-
-provisioner "file" {
+provisioner "remote-exec" {
   connection {
     type     = "ssh"
     user     = "ubuntu"
     private_key = "${file("~/.ssh/id_rsa")}"
     host     = "${self.public_ip}"
           }
-
-    ## it copies the file test to tmp folder 
-   source      = "test"
-   destination = "/tmp/"
-
-  
-    }
-
-    provisioner "remote-exec" {
-      connection {
-    type     = "ssh"
-    user     = "ubuntu"
-    private_key = "${file("~/.ssh/id_rsa")}"
-    host     = "${self.public_ip}"
-          }
-        inline = "sudo yum install telnet -y "
+        inline = [
+          "sudo apt-get install telnet -y ",
+          "mkdir /tmp/ubuntu",
+          "w",
+          "free -m",
+          "sleep 5"
+          ]
     
     }
 
