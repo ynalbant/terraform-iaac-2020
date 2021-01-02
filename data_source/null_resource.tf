@@ -1,4 +1,8 @@
 resource  "null_resource" "yunus"{
+    triggers = {
+        always_run = "${timestamp()}"
+    }
+
     provisioner "remote-exec" {
   connection {
     type     = "ssh"
